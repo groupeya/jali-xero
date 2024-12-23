@@ -5,10 +5,10 @@ import axios from 'axios';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL as string;
 
-interface Loan {
-  id: string;
-  borrower_name: string;
-}
+// interface Loan {
+//   id: string;
+//   borrower_name: string;
+// }
 
 interface CreateInvoiceResponse {
   message: string;
@@ -21,7 +21,7 @@ const loanAPI = {
     return response.data;
   },
   getLoanDetails: async (loanId: string) => {
-    const response = await axios.get<Loan>(`${BACKEND_URL}/api/v1/loan/${loanId}`);
+    const response = await axios.get(`${BACKEND_URL}/api/v1/loan/${loanId}`);
     return response.data;
   }
 };
@@ -138,7 +138,7 @@ export default function Page() {
       );
       return results;
     },
-    onSuccess: (data) => {
+    onSuccess: () => {
       setSuccessMessage('Successfully created invoices for all loans');
       setLoanIds([]);
     },
