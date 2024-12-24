@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -9,7 +8,7 @@ export default function CreateInvoiceCallbackPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleCallback = async () => {
+    const handleCallback = () => {
       try {
         if (!searchParams) {
           setError('Search parameters not available');
@@ -19,11 +18,13 @@ export default function CreateInvoiceCallbackPage() {
         const encodedToken = searchParams.get('token');
 
         if (encodedToken) {
-          const decodedToken = decodeURIComponent(encodedToken);
+          decodeURIComponent(encodedToken);
 
-          localStorage.setItem('xero_token', decodedToken);
+          const baseUrl =
+            process.env.NEXT_PUBLIC_BACKEND_URL ||
+            `${window.location.protocol}//${window.location.host}`;
 
-          router.push('/create-invoice');
+          router.push(`${baseUrl}/create-invoice?token=${encodedToken}`);
         } else {
           setError('No authentication token found');
         }
