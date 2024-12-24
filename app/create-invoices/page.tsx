@@ -3,12 +3,7 @@ import { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL as string;
-
-// interface Loan {
-//   id: string;
-//   borrower_name: string;
-// }
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 interface CreateInvoiceResponse {
   message: string;
@@ -45,7 +40,6 @@ function LoanItem({
 }) {
   const { data: loanData, isLoading, isError } = useLoanDetails(loanId);
 
-  // Check for invalid loan ID format (you can adjust the regex pattern as needed)
   const isValidLoanId = /^[A-Za-z0-9-]+$/.test(loanId);
 
   if (!isValidLoanId) {
