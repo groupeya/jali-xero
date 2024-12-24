@@ -11,7 +11,7 @@ export default function XeroAuthPage() {
       setIsLoading(true);
       setError(null);
 
-      window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL as string}/auth/xero/auth`;
+      window.location.href = `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/xero/auth`;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unexpected error occurred');
       console.error(err);
