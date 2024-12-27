@@ -18,13 +18,11 @@ export default function CreateInvoiceCallbackPage() {
         const encodedToken = searchParams.get('token');
 
         if (encodedToken) {
-          decodeURIComponent(encodedToken);
+          const decodedToken = decodeURIComponent(encodedToken);
 
-          const baseUrl =
-            process.env.NEXT_PUBLIC_ASSET_PREFIX ||
-            `${window.location.protocol}//${window.location.host}`;
+          const frontendUrl = `${window.location.origin}`;
 
-          router.push(`${baseUrl}/create-invoice?token=${encodedToken}`);
+          router.push(`${frontendUrl}/create-invoice?token=${decodedToken}`);
         } else {
           setError('No authentication token found');
         }
@@ -33,6 +31,7 @@ export default function CreateInvoiceCallbackPage() {
         setError('Failed to process authentication token');
       }
     };
+
 
     handleCallback();
   }, [searchParams, router]);
