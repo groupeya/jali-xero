@@ -21,7 +21,7 @@ export default function CreateInvoiceCallbackPage() {
           decodeURIComponent(encodedToken);
 
           const baseUrl =
-            process.env.NEXT_PUBLIC_BACKEND_URL ||
+            process.env.NEXT_PUBLIC_ASSET_PREFIX ||
             `${window.location.protocol}//${window.location.host}`;
 
           router.push(`${baseUrl}/create-invoice?token=${encodedToken}`);
