@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || '',
 };
 
 export default nextConfig;
