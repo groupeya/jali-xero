@@ -101,7 +101,7 @@ function LoanItem({
   }
 
   return (
-    <li className="flex justify-between font-semibold items-center text-gray-700 border border-gray-200 py-2 px-4 shadow">
+    <li className="flex justify-between font-semibold items-center text-green-900 border border-green-200 py-2 px-4 shadow">
       <span>
         {loanData[0].borrower_firstname} {loanData[0].borrower_lastname}
       </span>
