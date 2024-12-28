@@ -9,11 +9,11 @@ interface CreateInvoiceResponse {
 
 const loanAPI = {
   createInvoices: async (loanId: string) => {
-    const response = await axios.get<CreateInvoiceResponse>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/loan/create-invoices/${loanId}`);
+    const response = await axios.get<CreateInvoiceResponse>(`https://applicationbackend.jalikoi.rw/api/v1/loan/create-invoices/${loanId}`);
     return response.data;
   },
   getLoanDetails: async (loanId: string) => {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_UR}/api/v1/loan/${loanId}`);
+    const response = await axios.get(`https://applicationbackend.jalikoi.rw/api/v1/loan/${loanId}`);
     return response.data;
   }
 };
