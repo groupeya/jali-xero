@@ -3,13 +3,10 @@ import { useState } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-//const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
-
 interface CreateInvoiceResponse {
   message: string;
 }
 
-// Separate API functions
 const loanAPI = {
   createInvoices: async (loanId: string) => {
     const response = await axios.get<CreateInvoiceResponse>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/loan/create-invoices/${loanId}`);
